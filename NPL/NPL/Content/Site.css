@@ -1,0 +1,135 @@
+﻿body {
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-toggler {
+    padding: 0 1px;
+    margin-right: 10px;
+    font-size: 25px;
+    background-color: #FFB6C1;
+    border: solid 1px #FFB6C1;
+    border-radius: 100%;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+    color:black;
+    display: block;
+}
+
+.brand-hover {
+    padding: 17px 20px;
+}
+
+.brand-hover:hover {
+    background-color: #FFCDD5;
+}
+
+.navbar-brand:hover {
+    color:black !important;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-custom {
+    background-color: #FFE6EA;
+}
+
+.navbar-custom li {
+}
+
+.nav-link {
+    padding: 20px !important;
+}
+
+.navbar-custom li a {
+    color: black;
+    display: block;
+}
+
+.nav-link:hover {
+    background-color: #FFCDD5;
+}
+
+.dropdown-menu {
+    background-color: #FFDDE3;
+}
+
+.dropdown-item:hover {
+    background-color: #FAEEF1;
+}
+
+#logo {
+    float: left;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+#banner {
+    padding: 0;
+    float: right;
+    width: 100%;
+    height: 100%;
+}
+
+.img-header {
+    height:100%;
+    width:100%;
+}
+
+#header {
+    height:20vh;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #header {
+        height:8vh;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    #header {
+        height: 10vh;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    #header {
+        height: 12vh;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    #header {
+        height: 20vh;
+    }
+}
