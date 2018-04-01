@@ -50,7 +50,15 @@ namespace NPL.Controllers
             return RedirectToAction("Index");
         }
 
-
+        public ActionResult Logout()
+        {
+            if (Session["Account"] != null)
+            {
+                Session["Account"] = null;
+                Session["Role"] = null;
+            }
+            return RedirectToAction("Login");
+        }
 
 
 
