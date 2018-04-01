@@ -23,7 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-.navbar-toggler {
+.navbar-toggler-user {
     padding: 0 1px;
     margin-right: 10px;
     font-size: 25px;
@@ -32,7 +32,7 @@ textarea {
     border-radius: 100%;
 }
 
-.navbar-brand {
+.navbar-brand-user {
     margin: 0;
     padding: 0;
     color:black;
@@ -41,7 +41,7 @@ textarea {
     font-weight: bold;
 }
 
-.brand-hover {
+/*.brand-hover {
     padding: 10px 20px;
 }
 
@@ -84,7 +84,7 @@ textarea {
 
 .dropdown-item:hover {
     background-color: #FF9469;
-}
+}*/
 
 #logo {
     float: left;
