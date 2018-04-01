@@ -37,15 +37,17 @@ textarea {
     padding: 0;
     color:black;
     display: block;
+    font-size: 32px !important;
+    font-weight: bold;
 }
 
 .brand-hover {
-    padding: 17px 20px;
+    padding: 10px 20px;
 }
 
-.brand-hover:hover {
-    background-color: #FFCDD5;
-}
+    .brand-hover:hover {
+        background-color: #FF7B40;
+    }
 
 .navbar-brand:hover {
     color:black !important;
@@ -56,31 +58,32 @@ textarea {
 }
 
 .navbar-custom {
-    background-color: #FFE6EA;
+    background-color: #FF5809;
 }
 
 .navbar-custom li {
 }
 
 .nav-link {
-    padding: 20px !important;
+    padding: 19px 20px !important
 }
 
 .navbar-custom li a {
     color: black;
     display: block;
+    font-size: 20px;
 }
 
 .nav-link:hover {
-    background-color: #FFCDD5;
+    background-color: #FF7B40;
 }
 
 .dropdown-menu {
-    background-color: #FFDDE3;
+    background-color: #FF6722;
 }
 
 .dropdown-item:hover {
-    background-color: #FAEEF1;
+    background-color: #FF9469;
 }
 
 #logo {
@@ -131,5 +134,11 @@ textarea {
 @media only screen and (min-width: 1200px) {
     #header {
         height: 20vh;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #navbar-padding {
+        padding-left: 30px;
     }
 }
