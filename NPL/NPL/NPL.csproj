@@ -170,7 +170,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\apple-logo_318-40184.jpg" />
+    <Content Include="Images\bannerfood.png" />
+    <Content Include="Images\coca.png" />
     <Content Include="Images\logo-banner-design.jpg" />
+    <Content Include="Images\pacman.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -247,6 +250,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\PartialNavbarItem.cshtml" />
+    <Content Include="Views\Home\PartialDropdownItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

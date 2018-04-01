@@ -13,8 +13,7 @@ namespace NPL.Controllers
 
         public ActionResult Index()
         {
-            Admin r = data.Admins.SingleOrDefault(i => i.Username == "admin");
-            return View(r);
+            return View();
         }
 
         public ActionResult About()
@@ -29,6 +28,24 @@ namespace NPL.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        
+        [ChildActionOnly]
+        public ActionResult PartialNavbarItem()
+        {
+            List<Nhom> all = data.Nhoms.ToList();
+            return PartialView(all);
+        }
+
+        [ChildActionOnly]
+        public ActionResult PartialDropdownItem(int? idNhom)
+        {
+            if (idNhom == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            List<Loai> loai = data.Loais.Where(i => i.IDNhom == idNhom).ToList();
+            return PartialView(loai);
         }
     }
 }
