@@ -9,31 +9,12 @@ namespace NPL.Controllers
 {
     public class AdminNhomController : Controller
     {
-        private DBNPLDataContext data = new DBNPLDataContext();
-
-        public bool LoggedAsAdmin()
-        {
-            if (Session != null)
-            {
-                if (Session["Account"] != null && Session["Role"] != null)
-                {
-                    if (((string)Session["Role"]).Equals("Admin"))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            return false;
-        }
+        private DBNPLDataContext data = new DBNPLDataContext();        
 
     // GET: AdminNhom
     public ActionResult Index()
         {
-            if (!LoggedAsAdmin())
+            if (!Manager.LoggedAsAdmin())
             {
                 return RedirectToAction("Login", "Admin");
             }
@@ -43,7 +24,7 @@ namespace NPL.Controllers
 
         public ActionResult Create()
         {
-            if (!LoggedAsAdmin())
+            if (!Manager.LoggedAsAdmin())
             {
                 return RedirectToAction("Login", "Admin");
             }
@@ -70,7 +51,7 @@ namespace NPL.Controllers
 
         public ActionResult Edit(int? id)
         {
-            if (!LoggedAsAdmin())
+            if (!Manager.LoggedAsAdmin())
             {
                 return RedirectToAction("Login", "Admin");
             }
@@ -104,7 +85,7 @@ namespace NPL.Controllers
 
         public ActionResult Details(int? id)
         {
-            if (!LoggedAsAdmin())
+            if (!Manager.LoggedAsAdmin())
             {
                 return RedirectToAction("Login", "Admin");
             }
