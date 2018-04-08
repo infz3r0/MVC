@@ -60,7 +60,5 @@ namespace NPL.Controllers
             return RedirectToAction("Login");
         }
 
-
-
     }
 }
