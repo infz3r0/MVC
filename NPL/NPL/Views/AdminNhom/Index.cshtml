@@ -10,7 +10,7 @@
 <h2 style="text-align:center">Nhóm</h2>
 
 <p>
-    @Html.ActionLink("New", "Create", null, new { @class = "btn btn-outline-success btn-create" })
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-outline-success btn-create" })
 </p>
 
 <div class="table-responsive">
@@ -37,9 +37,9 @@
                         @Html.DisplayFor(modelItem => item.SoLuong)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.IDNhom }, new { @class = "btn btn-outline-secondary" })
-                        @Html.ActionLink("Details", "Details", new { id = item.IDNhom }, new { @class = "btn btn-outline-info" })
-                        <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDNhom" href="#">Delete</a>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDNhom }, new { @class = "btn btn-outline-secondary" })
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDNhom }, new { @class = "btn btn-outline-info" })
+                        <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDNhom" href="#">Xóa</a>
                     </td>
                 </tr>
             }
