@@ -1,0 +1,35 @@
+﻿@model NPL.Models.Nhom
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary" })
+</div>
+<h2 style="text-align:center">
+    Chỉnh sửa thông tin nhóm
+</h2>
+<hr />
+<div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IDNhom)
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="TenNhom" placeholder="Nhập tên nhóm" value="@Model.TenNhom" required autofocus>
+                    <div class="text-danger">@ViewBag.MessageFail</div>
+                    <div class="text-success">@ViewBag.MessageSuccess</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Sửa" class="btn btn-outline-success" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
