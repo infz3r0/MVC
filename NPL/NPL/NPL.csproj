@@ -164,6 +164,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style_user.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -171,8 +172,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\apple-logo_318-40184.jpg" />
+    <Content Include="Images\Ảnh1.png" />
+    <Content Include="Images\Ảnh2.png" />
+    <Content Include="Images\Ảnh3.png" />
+    <Content Include="Images\Ảnh4.png" />
     <Content Include="Images\bannerfood.png" />
+    <Content Include="Images\ChoppingBoard2.gif" />
     <Content Include="Images\coca.png" />
+    <Content Include="Images\header.jpg" />
     <Content Include="Images\logo-banner-design.jpg" />
     <Content Include="Images\pacman.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
