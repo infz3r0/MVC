@@ -1,13 +1,13 @@
-﻿@model IEnumerable<NPL.Models.Nhom>
+﻿@model IEnumerable<NPL.Models.Loai>
 
 @{
     /**/
 
-    ViewBag.Title = "Nhóm";
+    ViewBag.Title = "Loại";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
-    ViewBag.Name = "nhóm";
-    ViewBag.ModelName = "Nhom";
+    ViewBag.Name = "loại";
+    ViewBag.ModelName = "Loai";
 }
 @helper GetName(string name)
     {
@@ -25,10 +25,13 @@
         <thead class="thead-light">
             <tr>
                 <th>
-                    Tên nhóm
+                    Tên loại
                 </th>
                 <th>
                     Số lượng
+                </th>
+                <th>
+                    Nhóm
                 </th>
                 <th></th>
             </tr>
@@ -38,15 +41,18 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TenNhom)
+                        @Html.DisplayFor(modelItem => item.TenLoai)
                     </td>
                     <td style="text-align:center">
                         @Html.DisplayFor(modelItem => item.SoLuong)
                     </td>
                     <td>
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDNhom }, new { @class = "btn btn-outline-secondary" })
-                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDNhom }, new { @class = "btn btn-outline-info" })
-                        <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDNhom" href="#">Xóa</a>
+                        @Html.DisplayFor(modelItem => item.Nhom.TenNhom)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDLoai }, new { @class = "btn btn-outline-secondary" })
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDLoai }, new { @class = "btn btn-outline-info" })
+                        <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDLoai" href="#">Xóa</a>
                     </td>
                 </tr>
             }
@@ -67,7 +73,7 @@
                 <p>Bạn có chắc chắn muốn xóa @ViewBag.Name này?</p>
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("Delete", "AdminNhom", FormMethod.Post))
+                @using (Html.BeginForm("Delete", "AdminLoai", FormMethod.Post))
                 {
                     <input type="hidden" name="id" id="deleteID" value="" />
                     <input type="submit" class="btn btn-danger btn-ok" value="Đồng ý xóa" />

@@ -7,18 +7,18 @@ using NPL.Models;
 
 namespace NPL.Controllers
 {
-    public class AdminNhomController : Controller
+    public class AdminLoaiController : Controller
     {
         private DBNPLDataContext data = new DBNPLDataContext();
 
-        // GET: AdminNhom
+        // GET: AdminLoai
         public ActionResult Index()
         {
             if (!Manager.LoggedAsAdmin())
             {
                 return RedirectToAction("Login", "Admin");
             }
-            List<Nhom> all = data.Nhoms.ToList();
+            List<Loai> all = data.Loais.ToList();
             return View(all);
         }
 
@@ -35,18 +35,22 @@ namespace NPL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection form)
         {
-            string tenNhom = form["TenNhom"];
-            if (string.IsNullOrWhiteSpace(tenNhom))
+            string tenLoai = form["TenLoai"];
+            int idNhom = Convert.ToInt32(form["IDNhom"]);
+
+            if (string.IsNullOrWhiteSpace(tenLoai))
             {
-                ViewBag.MessageFail = "Tên nhóm không hợp lệ";
+                ViewBag.MessageFail = "Tên loại không hợp lệ";
                 return View();
             }
-            Nhom nhom = new Nhom();
-            nhom.TenNhom = tenNhom;
-            nhom.SoLuong = 0;
-            data.Nhoms.InsertOnSubmit(nhom);
+
+            Loai loai = new Loai();
+            loai.TenLoai = tenLoai;
+            loai.IDNhom = idNhom;
+            loai.SoLuong = 0;
+            data.Loais.InsertOnSubmit(loai);
             data.SubmitChanges();
-            ViewBag.MessageSuccess = "Thêm nhóm: [" + tenNhom + "] thành công";
+            ViewBag.MessageSuccess = "Thêm loại: [" + tenLoai + "] thành công";
             return View();
         }
 
@@ -60,28 +64,30 @@ namespace NPL.Controllers
             {
                 return RedirectToAction("Index");
             }
-            Nhom nhom = data.Nhoms.SingleOrDefault(i => i.IDNhom == id);
-            return View(nhom);
+            Loai loai = data.Loais.SingleOrDefault(i => i.IDLoai == id);
+            return View(loai);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(FormCollection form)
         {
-            string tenNhom = form["TenNhom"];
-            int id = Convert.ToInt32(form["IDNhom"]);
-            Nhom nhom = data.Nhoms.SingleOrDefault(i => i.IDNhom == id);
+            string tenLoai = form["TenLoai"];
+            int id = Convert.ToInt32(form["IDLoai"]);
+            int idNhom = Convert.ToInt32(form["IDNhom"]);
+            Loai loai = data.Loais.SingleOrDefault(i => i.IDLoai == id);
 
-            if (string.IsNullOrWhiteSpace(tenNhom))
+            if (string.IsNullOrWhiteSpace(tenLoai))
             {
                 ViewBag.MessageFail = "Tên nhóm không hợp lệ";
-                return View(nhom);
+                return View(loai);
             }
-            string tenCu = nhom.TenNhom;
-            nhom.TenNhom = tenNhom;
-            UpdateModel(nhom);
+            string tenCu = loai.TenLoai;
+            loai.TenLoai = tenLoai;
+            loai.IDNhom = idNhom;
+            UpdateModel(loai);
             data.SubmitChanges();
-            ViewBag.MessageSuccess = "Đã thay đổi tên nhóm: [" + tenCu + "] => [" + tenNhom + "] thành công";
+            ViewBag.MessageSuccess = "Đã thay đổi tên loại: [" + tenCu + "] => [" + tenLoai + "] thành công";
             return RedirectToAction("Index");
         }
 
@@ -95,44 +101,54 @@ namespace NPL.Controllers
             {
                 return RedirectToAction("Index");
             }
-            Nhom nhom = data.Nhoms.SingleOrDefault(i => i.IDNhom == id);
-            return View(nhom);
+            Loai loai = data.Loais.SingleOrDefault(i => i.IDLoai == id);
+            return View(loai);
         }
 
         [HttpPost]
         public ActionResult Delete(FormCollection form)
         {
             int id = Convert.ToInt32(form["id"]);
-            Nhom nhom = data.Nhoms.SingleOrDefault(i => i.IDNhom == id);
+            Loai loai = data.Loais.SingleOrDefault(i => i.IDLoai == id);
             //Nếu nhóm tồn tại
-            if (nhom != null)
+            if (loai != null)
             {
                 //Xóa nhóm
-                data.Nhoms.DeleteOnSubmit(nhom);
+                data.Loais.DeleteOnSubmit(loai);
                 try
                 {
                     data.SubmitChanges();
                 }
                 catch (Exception ex)
                 {
-                    int countLoai = data.Loais.Count(i => i.IDNhom == id);
+                    int countLoai = data.Loais.Count(i => i.IDLoai == id);
                     ViewBag.IsError = true;
                     if (ex.Message.Contains("The DELETE statement conflicted with the REFERENCE constraint"))
                     {
-                        ViewBag.ErrorBody = string.Format("Không thể xóa nhóm [{0}] do có {1} loại thức ăn trong nhóm này.", nhom.TenNhom, countLoai);
+                        ViewBag.ErrorBody = string.Format("Không thể xóa loại [{0}] do có {1} món ăn trong loại này.", loai.TenLoai, countLoai);
                     }
                     else
                     {
                         ViewBag.ErrorBody = ex.ToString();
                     }
-                    List<Nhom> all = data.Nhoms.ToList();
+                    List<Loai> all = data.Loais.ToList();
                     return View("Index", all);
                 }
             }
             //Xóa thành công hoặc nhóm k tồn tại thì trở về Index
-            return RedirectToAction("Index", "AdminNhom");
+            return RedirectToAction("Index", "AdminLoai");
         }
 
+        [ChildActionOnly]
+        public ActionResult PV_Dropdown_Nhom(int? idNhom)
+        {
+            List<Nhom> all = data.Nhoms.ToList();
+            if (idNhom != null)
+            {
+                ViewBag.idNhom = idNhom;
+            }
+            return PartialView(all);
+        }
         //end class
     }
 }

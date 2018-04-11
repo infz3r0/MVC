@@ -1,11 +1,11 @@
-﻿@model NPL.Models.Nhom
+﻿@model NPL.Models.Loai
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
-    ViewBag.Name = "nhóm";
-    ViewBag.ModelName = "Nhom";
+    ViewBag.Name = "loại";
+    ViewBag.ModelName = "Loai";
 }
 @helper GetName(string name)
     {
@@ -23,13 +23,17 @@
     <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-6">
         <table class="table table-detail">
             <tr>
+                <th>Tên loại:</th>
+                <td>@Model.TenLoai</td>
+            </tr>
+            <tr>
                 <th>Tên nhóm:</th>
-                <td>@Model.TenNhom</td>
+                <td>@Model.Nhom.TenNhom</td>
             </tr>
             <tr>
                 <td colspan="2" class="table-detail-end-td">
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.IDNhom }, new { @class = "btn btn-outline-secondary" })
-                    <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@Model.IDNhom" href="#">Delete</a>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.IDLoai }, new { @class = "btn btn-outline-secondary" })
+                    <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@Model.IDLoai" href="#">Delete</a>
                 </td>
             </tr>
         </table>
@@ -48,7 +52,7 @@
                 <p>Bạn có chắc chắn muốn xóa @ViewBag.Name này?</p>
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("Delete", "AdminNhom", FormMethod.Post))
+                @using (Html.BeginForm("Delete", "AdminLoai", FormMethod.Post))
                 {
                     <input type="hidden" name="id" id="deleteID" value="" />
                     <input type="submit" class="btn btn-danger btn-ok" value="Đồng ý xóa" />

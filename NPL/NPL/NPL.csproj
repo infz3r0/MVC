@@ -144,6 +144,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="Controllers\AdminLoaiController.cs" />
     <Compile Include="Controllers\Manager.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -264,6 +265,11 @@
     <Content Include="Views\AdminNhom\Create.cshtml" />
     <Content Include="Views\AdminNhom\Edit.cshtml" />
     <Content Include="Views\AdminNhom\Details.cshtml" />
+    <Content Include="Views\AdminLoai\Index.cshtml" />
+    <Content Include="Views\AdminLoai\Create.cshtml" />
+    <Content Include="Views\AdminLoai\Edit.cshtml" />
+    <Content Include="Views\AdminLoai\Details.cshtml" />
+    <Content Include="Views\AdminLoai\PV_Dropdown_Nhom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
