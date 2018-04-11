@@ -22,115 +22,66 @@ select {
     max-width: 280px;
 }
 
+.navbar-toggler-user {
+    padding: 0 1px;
+    margin-right: 10px;
+    font-size: 25px;
+    background-color: #FFB6C1;
+    border: solid 1px #FFB6C1;
+    border-radius: 100%;
+}
 
+.navbar-brand-user {
+    margin: 0;
+    padding: 0;
+    color:black;
+    display: block;
+    font-size: 32px !important;
+    font-weight: bold;
+}
 
-#logo {
-    float: left;
-    width: 100%;
-    height: 100%;
+/*.brand-hover {
+    padding: 10px 20px;
+}
+
+    .brand-hover:hover {
+        background-color: #FF7B40;
+    }
+
+.navbar-brand:hover {
+    color:black !important;
+}
+
+.navbar {
     padding: 0;
 }
 
-#banner {
-    padding: 0;
-    float: right;
-    width: 100%;
-    height: 100%;
+.navbar-custom {
+    background-color: #FF5809;
 }
 
-.img-header {
-    height:100%;
-    width:100%;
+.navbar-custom li {
 }
 
-#header {
-    height:20vh;
+.nav-link {
+    padding: 19px 20px !important
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    #header {
-        height:8vh;
-    }
+.navbar-custom li a {
+    color: black;
+    display: block;
+    font-size: 20px;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    #header {
-        height: 10vh;
-    }
+.nav-link:hover {
+    background-color: #FF7B40;
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    #header {
-        height: 12vh;
-    }
+.dropdown-menu {
+    background-color: #FF6722;
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    #header {
-        height: 20vh;
-    }
-}
+.dropdown-item:hover {
+    background-color: #FF9469;
+}*/
 
-@media only screen and (min-width: 1200px) {
-    #navbar-padding {
-        padding-left: 30px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-/*Admin*/
-th {
-    text-align:center;
-}
-
-tbody td {
-    vertical-align:middle !important;
-}
-
-.btn-create {
-    margin-left:1vw;
-}
-
-.admin-header {
-    text-align:center;
-}
-
-input {
-    max-width: 100% !important;
-}
-
-.table-detail th, .table-detail td {
-    border: none;
-}
-
-.table-detail-end-td {
-    border-top: 1px solid #dee2e6 !important;
-    text-align: right;
-}
-
-.container-alert {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-.alert-custom {
-    position: relative;
-    z-index: 1050;
-    margin: 10vh auto;
-    max-width: 800px;
-}
