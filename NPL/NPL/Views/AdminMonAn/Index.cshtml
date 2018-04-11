@@ -1,13 +1,13 @@
-﻿@model IEnumerable<NPL.Models.Nhom>
+﻿@model IEnumerable<NPL.Models.MonAn>
 
 @{
     /**/
 
-    ViewBag.Title = "Nhóm";
+    ViewBag.Title = "Món ăn";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
-    ViewBag.Name = "nhóm";
-    ViewBag.ModelName = "Nhom";
+    ViewBag.Name = "món ăn";
+    ViewBag.ModelName = "MonAn";
 }
 @helper GetName(string name)
     {
@@ -24,11 +24,20 @@
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
             <tr>
-                <th>
-                    Tên nhóm
+                <th style="vertical-align:middle">
+                    Tên món ăn
                 </th>
-                <th>
-                    Số lượng
+                <th style="vertical-align:middle">
+                    Giới thiệu
+                </th>
+                <th style="vertical-align:middle">
+                    Hình ảnh
+                </th>
+                <th style="vertical-align:middle">
+                    Phí vận chuyển
+                </th>
+                <th style="vertical-align:middle">
+                    Loại
                 </th>
                 <th></th>
             </tr>
@@ -36,19 +45,30 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td style="text-align:center">
-                        @Html.DisplayFor(modelItem => item.TenNhom)
-                    </td>
-                    <td style="text-align:center">
-                        @Html.DisplayFor(modelItem => item.SoLuong)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDNhom }, new { @class = "btn btn-outline-secondary" })
-                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDNhom }, new { @class = "btn btn-outline-info" })
-                        <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDNhom" href="#">Xóa</a>
-                    </td>
-                </tr>
+            <tr>
+                <td style="text-align:center; min-width:150px">
+                    @Html.DisplayFor(modelItem => item.TenMonAn)
+                </td>
+                <td style="max-width:300px;min-width:100px">
+                    <div style="max-height:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">
+                        @Html.DisplayFor(modelItem => item.GioiThieu)
+                    </div>
+                </td>
+                <td style="padding:0; max-width:10vw; min-width:130px">
+                    <img src="@Url.Content("~/Images/MonAn/" + item.HinhAnh)" alt="@item.HinhAnh" style="width:100%; height:auto"/>
+                </td>
+                <td style="text-align:center">
+                    @Convert.ToDecimal(item.PhiVanChuyen).ToString("N0")đ/km
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+                </td>
+                <td style="min-width:220px">
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDMonAn }, new { @class = "btn btn-outline-secondary" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.IDMonAn }, new { @class = "btn btn-outline-info" })
+                    <a id="deleteItem" class="deleteItem btn btn-danger" data-target="#basic" data-toggle="modal" data-path="@item.IDMonAn" href="#">Xóa</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -67,7 +87,7 @@
                 <p>Bạn có chắc chắn muốn xóa @ViewBag.Name này?</p>
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("Delete", "AdminNhom", FormMethod.Post))
+                @using (Html.BeginForm("Delete", "AdminMonAn", FormMethod.Post))
                 {
                     <input type="hidden" name="id" id="deleteID" value="" />
                     <input type="submit" class="btn btn-danger btn-ok" value="Đồng ý xóa" />
