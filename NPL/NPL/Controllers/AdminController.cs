@@ -14,19 +14,15 @@ namespace NPL.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            if (Manager.LoggedAsAdmin())
+            if (Session["Account"] == null)
             {
-                return View();
+                return RedirectToAction("Login");
             }
-            return RedirectToAction("Login");
+            return View();
         }
 
         public ActionResult Login()
         {
-            if (Manager.LoggedAsAdmin())
-            {
-                return RedirectToAction("Index");
-            }
             return View();
         }
 
@@ -56,14 +52,15 @@ namespace NPL.Controllers
 
         public ActionResult Logout()
         {
-            if (Manager.LoggedAsAdmin())
+            if (Session["Account"] != null)
             {
                 Session["Account"] = null;
                 Session["Role"] = null;
-
-                return RedirectToAction("Login");
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Login");
         }
+
+
+
     }
 }
