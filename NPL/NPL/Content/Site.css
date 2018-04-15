@@ -18,8 +18,7 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select {
     max-width: 280px;
 }
 
@@ -86,59 +85,3 @@ textarea {
     background-color: #FF9469;
 }*/
 
-#logo {
-    float: left;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-}
-
-#banner {
-    padding: 0;
-    float: right;
-    width: 100%;
-    height: 100%;
-}
-
-.img-header {
-    height:100%;
-    width:100%;
-}
-
-#header {
-    height:20vh;
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    #header {
-        height:8vh;
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    #header {
-        height: 10vh;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    #header {
-        height: 12vh;
-    }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    #header {
-        height: 20vh;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    #navbar-padding {
-        padding-left: 30px;
-    }
-}

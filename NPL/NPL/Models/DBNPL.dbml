@@ -48,15 +48,6 @@
       <Association Name="ThucDon_KhuyenMai" Member="ThucDon" ThisKey="IDThucDon" OtherKey="IDThucDon" Type="ThucDon" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Loai" Member="Loais">
-    <Type Name="Loai">
-      <Column Name="IDLoai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IDNhom" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Loai_MonAn" Member="MonAns" ThisKey="IDLoai" OtherKey="IDLoai" Type="MonAn" />
-      <Association Name="Nhom_Loai" Member="Nhom" ThisKey="IDNhom" OtherKey="IDNhom" Type="Nhom" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.MonAn" Member="MonAns">
     <Type Name="MonAn">
       <Column Name="IDMonAn" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -69,13 +60,6 @@
       <Association Name="Loai_MonAn" Member="Loai" ThisKey="IDLoai" OtherKey="IDLoai" Type="Loai" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Nhom" Member="Nhoms">
-    <Type Name="Nhom">
-      <Column Name="IDNhom" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenNhom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Nhom_Loai" Member="Loais" ThisKey="IDNhom" OtherKey="IDNhom" Type="Loai" />
-    </Type>
-  </Table>
   <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
     <Type Name="TaiKhoan">
       <Column Name="IDUser" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -85,6 +69,24 @@
       <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="TaiKhoan_DatHang" Member="DatHangs" ThisKey="IDUser" OtherKey="IDUser" Type="DatHang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nhom" Member="Nhoms">
+    <Type Name="Nhom">
+      <Column Name="IDNhom" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNhom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Nhom_Loai" Member="Loais" ThisKey="IDNhom" OtherKey="IDNhom" Type="Loai" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Loai" Member="Loais">
+    <Type Name="Loai">
+      <Column Name="IDLoai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDNhom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Loai_MonAn" Member="MonAns" ThisKey="IDLoai" OtherKey="IDLoai" Type="MonAn" />
+      <Association Name="Nhom_Loai" Member="Nhom" ThisKey="IDNhom" OtherKey="IDNhom" Type="Nhom" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
