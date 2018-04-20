@@ -6,6 +6,15 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/shared/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/shared/bootstrappage.css" rel="stylesheet" />
+    <link href="~/Content/shared/main.css" rel="stylesheet" />
+    <link href="~/Content/shared/flexslider.css" rel="stylesheet" />
+    <script src="~/Scripts/shared/jquery-1.7.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/shared/superfish.js"></script>
+    <script src="~/Scripts/shared/jquery.scrolltotop.js"></script>
 </head>
 <body>
     <header>
@@ -81,13 +90,72 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Đồ án môn học Lập trình web</p>
-        </footer>
-    </div>
+        <section class="main-content">
+                    <div class="row">
+                        <div class="span12">
+                            <h4 class="title">
+                                <span class="pull-left"><span class="text"><span class="line">MÓN ĂN <strong>MỚI</strong></span></span></span>
+                            </h4>
+                            <div id="myCarousel" class="myCarousel carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="active item">
+                                        <ul class="thumbnails" style="list-style-type:none">
+                                            <li class="span3">
+                                                <div class="product-box">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                                                    <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
+                                                    <a href="product_detail.html" class="title">Tên món ăn</a><br />
+
+                                                    <p class="price">Giá</p>
+                                                </div>
+                                            </li>
+
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
+                                                    <a href="product_detail.html" class="title">Tên món ăn</a><br />
+
+                                                    <p class="price">Giá</p>
+                                                </div>
+                                            </li>
+
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
+                                                    <a href="product_detail.html" class="title">Tên món ăn</a><br />
+
+                                                    <p class="price">Giá</p>
+                                                </div>
+                                            </li>
+
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
+                                                    <a href="product_detail.html" class="title">Tên món ăn</a><br />
+
+                                                    <p class="price">Giá</p>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+   
+                </section>
+
+                                            <footer>
+                                                <p>&copy; @DateTime.Now.Year - Đồ án môn học Lập trình web</p>
+                                            </footer>
+                                    </div>
+
+                                    @Scripts.Render("~/bundles/jquery")
+                                    @Scripts.Render("~/bundles/bootstrap")
+                                    @RenderSection("scripts", required: false)
 </body>
 </html>
