@@ -150,6 +150,7 @@
     <Compile Include="Controllers\AdminNhomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminMonAnController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\NPLController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,6 +306,8 @@
     <Content Include="Views\AdminMonAn\Index.cshtml" />
     <Content Include="Views\AdminMonAn\Create.cshtml" />
     <Content Include="Views\AdminMonAn\PV_Dropdown_Loai.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

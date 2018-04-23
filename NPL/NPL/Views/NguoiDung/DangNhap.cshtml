@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = null;@*"~/Views/Shared/_Layout.cshtml";*@
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/shared/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="~/Content/shared/bootstrappage.css" rel="stylesheet" />
+<link href="~/Content/shared/main.css" rel="stylesheet" />
+<link href="~/Content/shared/flexslider.css" rel="stylesheet" />
+<script src="~/Scripts/shared/jquery-1.7.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/shared/superfish.js"></script>
+<script src="~/Scripts/shared/jquery.scrolltotop.js"></script>
+
+<section class="main-content">
+    <div class=" row justify-content-center">
+        <div class="span4">
+            <h4 class="title"><span class="text"><strong>ĐĂNG NHẬP</strong> WEBSITE</span></h4>
+            <form action="#" method="post" class="form-stacked">
+                <fieldset>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Tên đăng nhập:</label>
+                        <div class="controls">
+                            <input type="text" class="form-control form-control-static" required autofocus>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-bottom:17px">
+                        <label class="control-label">Mật khẩu:</label>
+                        <div class="controls">
+                            <input type="password" class="form-control form-control-static" required autofocus>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="actions"><input tabindex="2" class="btn btn-outline-info btn-block btn-lg" type="submit" value="Đăng nhập"></div>
+                </fieldset>
+            </form>
+            <div style="margin-bottom:17px">
+                <a href="@Url.Action("DangKy","NguoiDung") " class="btn-link" >Bạn chưa có tài khoản? </a>
+            </div>
+            <div style="margin-bottom:17px">
+                <a href="@Url.Action("Index","NguoiDung") " class="btn-link" >Quên mật khẩu ?</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    
+
+
+
