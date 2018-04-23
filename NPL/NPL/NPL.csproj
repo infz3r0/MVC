@@ -150,6 +150,7 @@
     <Compile Include="Controllers\AdminNhomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminMonAnController.cs" />
+    <Compile Include="Controllers\NPLController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +187,11 @@
     </Content>
     <Content Include="Images\gotop.png" />
     <Content Include="Images\line_bar.png" />
+    <Content Include="Images\menu\hamburger.jpg" />
+    <Content Include="Images\menu\tooplate_menu.png" />
+    <Content Include="Images\menu\tooplate_menu_last.png" />
+    <Content Include="Images\menu\tooplate_site_header.png" />
+    <Content Include="Images\menu\userpic.gif" />
     <Content Include="Images\MonAn\burger.jpg" />
     <Content Include="Images\apple-logo_318-40184.jpg" />
     <Content Include="Images\Ảnh1.png" />
@@ -302,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NPL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

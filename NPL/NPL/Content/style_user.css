@@ -115,7 +115,86 @@ textarea {
     color: black !important;
 }
 
-    .dropdown-custom .dropdown-item:hover {
-        color: black !important;
-        background-color: #ff9980;
+.dropdown-custom .dropdown-item:hover {
+    color: black !important;
+    background-color: #ff9980;
+}
+/*---------menu-------------*/
+#tooplate_wrapper {
+    width: 1500px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+#tooplate_sidebar {
+    float: left;
+    width: 280px;
+}
+#id-header 
+{
+    width: 228px;
+    padding: 198px 20px 5px;
+    height: 93px;
+    background: url(../images/menu/tooplate_site_header.png) no-repeat top
+}
+menu {
+    clear: both;
+    width: 228px;
+}
+ul.navigation 
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    ul.navigation li 
+    {
+        margin: 0;
+        padding: 0;
     }
+    ul.navigation a
+    {
+        display: block;
+        width: 228px;
+        height: 59px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        text-align: center;
+        color: #000;
+        background: url(../images/menu/tooplate_menu.png) no-repeat
+    }
+ ul.navigation a.last 
+ {
+    height: 98px;
+    background: url(../images/menu/tooplate_menu_last.png) no-repeat top left;
+}
+ul.navigation a:hover, ul.navigation a.selected 
+{
+    color: #fff;
+}
+
+ul.navigation a:focus
+{
+    outline: none;
+}
+.scrollButtons 
+{
+    position: absolute;
+    top: 300px;
+    cursor: pointer;
+}
+
+    .scrollButtons.left 
+    {
+        left: 0
+    }
+
+    .scrollButtons.right
+    {
+        right: 0
+    }
+.hide 
+{
+    display: none;
+}
