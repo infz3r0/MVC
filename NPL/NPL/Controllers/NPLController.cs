@@ -13,7 +13,7 @@ namespace NPL.Controllers
         DBNPLDataContext data = new DBNPLDataContext();
         private List<MonAn> LayMonAnMoi(int count)
         {
-            return data.MonAns.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
+            return null;//data.MonAns.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
         public ActionResult Index()
         {

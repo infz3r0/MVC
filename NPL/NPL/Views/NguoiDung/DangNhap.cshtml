@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "DangKy";
+    ViewBag.Title = "Đăng nhập";
     Layout = null;@*"~/Views/Shared/_Layout.cshtml";*@
 }
 
@@ -14,7 +14,7 @@
 <script src="~/Scripts/shared/superfish.js"></script>
 <script src="~/Scripts/shared/jquery.scrolltotop.js"></script>
 
-<section class="main-content">
+<section class="#" >
     <div class=" row justify-content-center">
         <div class="span4">
             <h4 class="title"><span class="text"><strong>ĐĂNG NHẬP</strong> WEBSITE</span></h4>
@@ -23,15 +23,20 @@
                     <div class="control-group" style="margin-bottom:17px">
                         <label class="control-label">Tên đăng nhập:</label>
                         <div class="controls">
-                            <input type="text" class="form-control form-control-static" required autofocus>
+                            <input type="text" name="TenDangNhap" class="form-control form-control-static" required autofocus>
                         </div>
                     </div>
                     <div class="control-group" style="margin-bottom:17px">
                         <label class="control-label">Mật khẩu:</label>
                         <div class="controls">
-                            <input type="password" class="form-control form-control-static" required autofocus>
+                            <input type="password" name="MatKhau" class="form-control form-control-static" required>
                         </div>
                     </div>
+                    <h6 style="color:red; font-size:13px">
+                        <td>
+                          @ViewBag.Thongbao
+                        </td>
+                    </h6>
                     <hr>
                     <div class="actions"><input tabindex="2" class="btn btn-outline-info btn-block btn-lg" type="submit" value="Đăng nhập"></div>
                 </fieldset>

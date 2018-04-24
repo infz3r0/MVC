@@ -161,6 +161,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBNPL.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +309,8 @@
     <Content Include="Views\AdminMonAn\PV_Dropdown_Loai.cshtml" />
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\NguoiDung\HienTenDN.cshtml" />
+    <Content Include="Views\NguoiDung\TaiKhoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
