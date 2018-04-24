@@ -150,6 +150,8 @@
     <Compile Include="Controllers\AdminNhomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminMonAnController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\NPLController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,6 +170,15 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\shared\bootstrap-responsive.css" />
+    <Content Include="Content\shared\bootstrap-responsive.min.css" />
+    <Content Include="Content\shared\bootstrap.css" />
+    <Content Include="Content\shared\bootstrap.min.css" />
+    <Content Include="Content\shared\bootstrappage.css" />
+    <Content Include="Content\shared\flexslider.css" />
+    <Content Include="Content\shared\jquery.fancybox.css" />
+    <Content Include="Content\shared\main.css" />
+    <Content Include="Content\shared\style.css" />
     <Content Include="Content\style_user.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -175,6 +186,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\gotop.png" />
+    <Content Include="Images\line_bar.png" />
+    <Content Include="Images\menu\hamburger.jpg" />
+    <Content Include="Images\menu\tooplate_menu.png" />
+    <Content Include="Images\menu\tooplate_menu_last.png" />
+    <Content Include="Images\menu\tooplate_site_header.png" />
+    <Content Include="Images\menu\userpic.gif" />
     <Content Include="Images\MonAn\burger.jpg" />
     <Content Include="Images\apple-logo_318-40184.jpg" />
     <Content Include="Images\Ảnh1.png" />
@@ -236,6 +254,12 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\shared\common.js" />
+    <Content Include="Scripts\shared\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\shared\jquery.fancybox.js" />
+    <Content Include="Scripts\shared\jquery.flexslider-min.js" />
+    <Content Include="Scripts\shared\jquery.scrolltotop.js" />
+    <Content Include="Scripts\shared\superfish.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -282,9 +306,12 @@
     <Content Include="Views\AdminMonAn\Index.cshtml" />
     <Content Include="Views\AdminMonAn\Create.cshtml" />
     <Content Include="Views\AdminMonAn\PV_Dropdown_Loai.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NPL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
