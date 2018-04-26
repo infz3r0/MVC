@@ -92,9 +92,12 @@
         <div id="tooplate_wrapper">
             <div id="tooplate_sidebar">
                 <div id="id-header">
-                    @* <h1><a href="#">Các Món An</a></h1>*@
+                    
+                    <h3><a href="#">Menu</a></h3>
                 </div>
+                
                 <div id="menu">
+                   
                     <ul class="navigation">
                         <li><a href="#home" class="selected">Home</a></li>
                         <li><a href="#about">About Us</a></li>
@@ -105,72 +108,17 @@
                 </div>
             </div>
             <!-------------------->
-            <section class="main-content">
-                <div class="row">
-                    <div class="span12">
-                        <br />
-                        <h4 class="title">
-                            <span class="pull-left"><span class="text"><span class="line">MÓN ĂN <strong>MỚI</strong></span></span></span>
-                        </h4>
-                        <div id="myCarousel" class="myCarousel carousel slide">
-                            <div class="carousel-inner">
-                                <div class="active item">
-                                    <ul class="thumbnails" style="list-style-type:none">
-                                        <li class="span3">
-                                            <div class="product-box">
-
-                                                <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
-                                                <a href="product_detail.html" class="title">Tên món ăn</a><br />
-
-                                                <p class="price">Giá</p>
-                                            </div>
-                                        </li>
-
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
-                                                <a href="product_detail.html" class="title">Tên món ăn</a><br />
-
-                                                <p class="price">Giá</p>
-                                            </div>
-                                        </li>
-
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
-                                                <a href="product_detail.html" class="title">Tên món ăn</a><br />
-
-                                                <p class="price">Giá</p>
-                                            </div>
-                                        </li>
-
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Ảnh1.png" alt="" width="150px" height="100%" /></a></p>
-                                                <a href="product_detail.html" class="title">Tên món ăn</a><br />
-
-                                                <p class="price">Giá</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                       
         </div>
     </div>
-            
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
+            <br />
+             @RenderBody()
+            <div class="container body-content">     
                 
-
+                <hr />                
+                
                 <footer>
+                   
                     <p>&copy; @DateTime.Now.Year - Đồ án môn học Lập trình web</p>
                 </footer>
             </div>

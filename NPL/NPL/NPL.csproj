@@ -150,7 +150,6 @@
     <Compile Include="Controllers\AdminNhomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminMonAnController.cs" />
-    <Compile Include="Controllers\NPLController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,11 +186,16 @@
     </Content>
     <Content Include="Images\gotop.png" />
     <Content Include="Images\line_bar.png" />
-    <Content Include="Images\menu\hamburger.jpg" />
     <Content Include="Images\menu\tooplate_menu.png" />
     <Content Include="Images\menu\tooplate_menu_last.png" />
     <Content Include="Images\menu\tooplate_site_header.png" />
     <Content Include="Images\menu\userpic.gif" />
+    <Content Include="Images\MonAn\banh-mi-kep-cha-lua.jpg" />
+    <Content Include="Images\MonAn\banhmicha.jpg" />
+    <Content Include="Images\MonAn\banhmichaca.jpg" />
+    <Content Include="Images\MonAn\banhmiheoquay.jpg" />
+    <Content Include="Images\MonAn\banhmiopla.jpg" />
+    <Content Include="Images\MonAn\bunthitnuong.jpg" />
     <Content Include="Images\MonAn\burger.jpg" />
     <Content Include="Images\apple-logo_318-40184.jpg" />
     <Content Include="Images\Ảnh1.png" />
@@ -203,6 +207,16 @@
     <Content Include="Images\coca.png" />
     <Content Include="Images\header.jpg" />
     <Content Include="Images\logo-banner-design.jpg" />
+    <Content Include="Images\MonAn\comchien.jpg" />
+    <Content Include="Images\MonAn\garan.jpg" />
+    <Content Include="Images\MonAn\hamburger.jpg" />
+    <Content Include="Images\MonAn\hamburgerDB.jpg" />
+    <Content Include="Images\MonAn\hamburger_bo.gif" />
+    <Content Include="Images\MonAn\hamburger_ga.jpg" />
+    <Content Include="Images\MonAn\hamburger_haisan.jpg" />
+    <Content Include="Images\MonAn\hotdog.jpg" />
+    <Content Include="Images\MonAn\trasua.jpg" />
+    <Content Include="Images\MonAn\xoi.jpg" />
     <Content Include="Images\pacman.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -305,10 +319,11 @@
     <Content Include="Views\AdminMonAn\Index.cshtml" />
     <Content Include="Views\AdminMonAn\Create.cshtml" />
     <Content Include="Views\AdminMonAn\PV_Dropdown_Loai.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Table_ThucDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NPL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

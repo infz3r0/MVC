@@ -1,6 +1,44 @@
 ﻿
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <br />
+            <h4 class="title">
+                <span class="pull-left"><span class="text"><span class="line">CÁC MÓN <strong>MỚI</strong></span></span></span>
+            </h4>
+
+            <div id="myCarousel" class="myCarousel carousel slide">
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <ul class="thumbnails" style="list-style-type:none">
+                            @foreach (var monan in Model)
+                            {
+                                <li class="span3">
+                                    <div class="product-box">
+                                        <a href="@Url.Action("Details", "Home", new { id = monan.IDMonAn })">
+                                            <img alt="@monan.TenMonAn" src="~/Images/MonAn/@monan.HinhAnh" style="width:270px; height:200px" />                                                                                        
+                                            <div>                                             
+                                                <br />
+                                                <h4 style="text-align:center">
+                                                    @monan.TenMonAn
+                                                </h4>                                                
+                                                <p></p>
+                                            </div>                                  
+                                        </a>
+                                    </div>
+                                    <br />
+                                </li>                                
+                            }                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

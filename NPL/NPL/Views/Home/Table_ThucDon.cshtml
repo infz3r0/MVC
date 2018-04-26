@@ -1,0 +1,35 @@
+﻿@using NPL.Models
+@model List<NPL.Models.ThucDon>
+
+
+<table class="table table-bordered" style="width:600px; height:250px">
+    <tr>
+        <th style="text-align:center; background-color: aqua">
+            Thực Đơn
+        </th>
+        <th style="text-align:center; background-color: aqua">
+            Hình Ảnh
+        </th>
+        <th style="text-align:center; background-color: aqua">
+            Đơn Giá
+        </th>
+        <th style="text-align:center; background-color: aqua"></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align:center;vertical-align:middle">
+                @item.TenThucDon
+            </td>
+            <td style="text-align:center;vertical-align:middle">                
+                <img alt="@item.TenThucDon" src="~/Images/MonAn/@item.HinhAnh" style="width:200px; height:150px" />
+            </td>
+            <td style="text-align:center;vertical-align:middle">
+                @item.DonGia VNĐ
+            </td>
+            <td style="text-align:center;vertical-align:middle">
+                @Html.ActionLink("Đặt Hàng", "Order", new { id = item.IDThucDon }, new { @class = "btn btn-info" })
+            </td>
+        </tr>                
+    }
+</table>
