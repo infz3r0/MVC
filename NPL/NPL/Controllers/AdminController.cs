@@ -43,7 +43,7 @@ namespace NPL.Controllers
             Session["Account"] = r;
             Session["Role"] = "Admin";
 
-            r.LastLogin = DateTime.Now;
+           // r.LastLogin = DateTime.Now;
             UpdateModel(r);
             data.SubmitChanges();
 

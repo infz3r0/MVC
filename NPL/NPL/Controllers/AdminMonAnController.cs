@@ -15,10 +15,11 @@ namespace NPL.Controllers
         // GET: AdminMonAn
         public ActionResult Index()
         {
-            if (!Manager.LoggedAsAdmin())
-            {
-                return RedirectToAction("Login", "Admin");
-            }
+            //if (!Manager.LoggedAsAdmin())
+            //{
+            //    return RedirectToAction("Login", "Admin");
+            //}
+
             List<MonAn> all = data.MonAns.ToList();
             return View(all);
         }

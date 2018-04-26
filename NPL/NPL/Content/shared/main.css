@@ -21,7 +21,7 @@ ul li a,a{
     transition: all 0.2s linear;
 }
 a{
-	color:#eb4800;
+	color:white;
 }
 a:hover{
 	color:#fd4004;
