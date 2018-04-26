@@ -148,6 +148,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminNhomController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminMonAnController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Images\menu\tooplate_menu_last.png" />
     <Content Include="Images\menu\tooplate_site_header.png" />
     <Content Include="Images\menu\userpic.gif" />
+    <Content Include="Images\MonAn\banh-mi-kep-trung.jpg" />
     <Content Include="Images\MonAn\burger.jpg" />
     <Content Include="Images\apple-logo_318-40184.jpg" />
     <Content Include="Images\Ảnh1.png" />
@@ -311,6 +313,10 @@
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Views\NguoiDung\HienTenDN.cshtml" />
     <Content Include="Views\NguoiDung\TaiKhoan.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GiohangPartial.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\Xacnhandonhang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

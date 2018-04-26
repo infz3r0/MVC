@@ -36,6 +36,9 @@ namespace NPL.Models
     partial void InsertThucDon(ThucDon instance);
     partial void UpdateThucDon(ThucDon instance);
     partial void DeleteThucDon(ThucDon instance);
+    partial void InsertCaiDat(CaiDat instance);
+    partial void UpdateCaiDat(CaiDat instance);
+    partial void DeleteCaiDat(CaiDat instance);
     partial void InsertChiTietDatHang(ChiTietDatHang instance);
     partial void UpdateChiTietDatHang(ChiTietDatHang instance);
     partial void DeleteChiTietDatHang(ChiTietDatHang instance);
@@ -48,6 +51,9 @@ namespace NPL.Models
     partial void InsertLoai(Loai instance);
     partial void UpdateLoai(Loai instance);
     partial void DeleteLoai(Loai instance);
+    partial void InsertLogLogin(LogLogin instance);
+    partial void UpdateLogLogin(LogLogin instance);
+    partial void DeleteLogLogin(LogLogin instance);
     partial void InsertMonAn(MonAn instance);
     partial void UpdateMonAn(MonAn instance);
     partial void DeleteMonAn(MonAn instance);
@@ -105,6 +111,14 @@ namespace NPL.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<CaiDat> CaiDats
+		{
+			get
+			{
+				return this.GetTable<CaiDat>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ChiTietDatHang> ChiTietDatHangs
 		{
 			get
@@ -134,6 +148,14 @@ namespace NPL.Models
 			get
 			{
 				return this.GetTable<Loai>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LogLogin> LogLogins
+		{
+			get
+			{
+				return this.GetTable<LogLogin>();
 			}
 		}
 		
@@ -172,7 +194,7 @@ namespace NPL.Models
 		
 		private string _Password;
 		
-		private System.Nullable<System.DateTime> _LastLogin;
+		private EntitySet<LogLogin> _LogLogins;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -182,12 +204,11 @@ namespace NPL.Models
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnLastLoginChanging(System.Nullable<System.DateTime> value);
-    partial void OnLastLoginChanged();
     #endregion
 		
 		public Admin()
 		{
+			this._LogLogins = new EntitySet<LogLogin>(new Action<LogLogin>(this.attach_LogLogins), new Action<LogLogin>(this.detach_LogLogins));
 			OnCreated();
 		}
 		
@@ -211,7 +232,7 @@ namespace NPL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(40)")]
 		public string Password
 		{
 			get
@@ -231,23 +252,16 @@ namespace NPL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastLogin
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Admin_LogLogin", Storage="_LogLogins", ThisKey="Username", OtherKey="Username")]
+		public EntitySet<LogLogin> LogLogins
 		{
 			get
 			{
-				return this._LastLogin;
+				return this._LogLogins;
 			}
 			set
 			{
-				if ((this._LastLogin != value))
-				{
-					this.OnLastLoginChanging(value);
-					this.SendPropertyChanging();
-					this._LastLogin = value;
-					this.SendPropertyChanged("LastLogin");
-					this.OnLastLoginChanged();
-				}
+				this._LogLogins.Assign(value);
 			}
 		}
 		
@@ -270,6 +284,18 @@ namespace NPL.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_LogLogins(LogLogin entity)
+		{
+			this.SendPropertyChanging();
+			entity.Admin = this;
+		}
+		
+		private void detach_LogLogins(LogLogin entity)
+		{
+			this.SendPropertyChanging();
+			entity.Admin = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ThucDon")]
@@ -287,6 +313,8 @@ namespace NPL.Models
 		private System.Nullable<decimal> _DonGia;
 		
 		private System.Nullable<int> _SoLuongDaDat;
+		
+		private System.Nullable<bool> _LaMonChinh;
 		
 		private System.Nullable<int> _IDMonAn;
 		
@@ -310,6 +338,8 @@ namespace NPL.Models
     partial void OnDonGiaChanged();
     partial void OnSoLuongDaDatChanging(System.Nullable<int> value);
     partial void OnSoLuongDaDatChanged();
+    partial void OnLaMonChinhChanging(System.Nullable<bool> value);
+    partial void OnLaMonChinhChanged();
     partial void OnIDMonAnChanging(System.Nullable<int> value);
     partial void OnIDMonAnChanged();
     #endregion
@@ -418,6 +448,26 @@ namespace NPL.Models
 					this._SoLuongDaDat = value;
 					this.SendPropertyChanged("SoLuongDaDat");
 					this.OnSoLuongDaDatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LaMonChinh", DbType="Bit")]
+		public System.Nullable<bool> LaMonChinh
+		{
+			get
+			{
+				return this._LaMonChinh;
+			}
+			set
+			{
+				if ((this._LaMonChinh != value))
+				{
+					this.OnLaMonChinhChanging(value);
+					this.SendPropertyChanging();
+					this._LaMonChinh = value;
+					this.SendPropertyChanged("LaMonChinh");
+					this.OnLaMonChinhChanged();
 				}
 			}
 		}
@@ -552,6 +602,140 @@ namespace NPL.Models
 		{
 			this.SendPropertyChanging();
 			entity.ThucDon = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CaiDat")]
+	public partial class CaiDat : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDCaiDat;
+		
+		private string _TenThamSo;
+		
+		private string _HienThi;
+		
+		private string _GiaTri;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDCaiDatChanging(int value);
+    partial void OnIDCaiDatChanged();
+    partial void OnTenThamSoChanging(string value);
+    partial void OnTenThamSoChanged();
+    partial void OnHienThiChanging(string value);
+    partial void OnHienThiChanged();
+    partial void OnGiaTriChanging(string value);
+    partial void OnGiaTriChanged();
+    #endregion
+		
+		public CaiDat()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCaiDat", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDCaiDat
+		{
+			get
+			{
+				return this._IDCaiDat;
+			}
+			set
+			{
+				if ((this._IDCaiDat != value))
+				{
+					this.OnIDCaiDatChanging(value);
+					this.SendPropertyChanging();
+					this._IDCaiDat = value;
+					this.SendPropertyChanged("IDCaiDat");
+					this.OnIDCaiDatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenThamSo", DbType="VarChar(50)")]
+		public string TenThamSo
+		{
+			get
+			{
+				return this._TenThamSo;
+			}
+			set
+			{
+				if ((this._TenThamSo != value))
+				{
+					this.OnTenThamSoChanging(value);
+					this.SendPropertyChanging();
+					this._TenThamSo = value;
+					this.SendPropertyChanged("TenThamSo");
+					this.OnTenThamSoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HienThi", DbType="NVarChar(50)")]
+		public string HienThi
+		{
+			get
+			{
+				return this._HienThi;
+			}
+			set
+			{
+				if ((this._HienThi != value))
+				{
+					this.OnHienThiChanging(value);
+					this.SendPropertyChanging();
+					this._HienThi = value;
+					this.SendPropertyChanged("HienThi");
+					this.OnHienThiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaTri", DbType="NVarChar(100)")]
+		public string GiaTri
+		{
+			get
+			{
+				return this._GiaTri;
+			}
+			set
+			{
+				if ((this._GiaTri != value))
+				{
+					this.OnGiaTriChanging(value);
+					this.SendPropertyChanging();
+					this._GiaTri = value;
+					this.SendPropertyChanged("GiaTri");
+					this.OnGiaTriChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1328,6 +1512,157 @@ namespace NPL.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LogLogin")]
+	public partial class LogLogin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDLog;
+		
+		private string _Username;
+		
+		private System.Nullable<System.DateTime> _LoginTime;
+		
+		private EntityRef<Admin> _Admin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDLogChanging(int value);
+    partial void OnIDLogChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnLoginTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnLoginTimeChanged();
+    #endregion
+		
+		public LogLogin()
+		{
+			this._Admin = default(EntityRef<Admin>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDLog", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDLog
+		{
+			get
+			{
+				return this._IDLog;
+			}
+			set
+			{
+				if ((this._IDLog != value))
+				{
+					this.OnIDLogChanging(value);
+					this.SendPropertyChanging();
+					this._IDLog = value;
+					this.SendPropertyChanged("IDLog");
+					this.OnIDLogChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(30)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					if (this._Admin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LoginTime
+		{
+			get
+			{
+				return this._LoginTime;
+			}
+			set
+			{
+				if ((this._LoginTime != value))
+				{
+					this.OnLoginTimeChanging(value);
+					this.SendPropertyChanging();
+					this._LoginTime = value;
+					this.SendPropertyChanged("LoginTime");
+					this.OnLoginTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Admin_LogLogin", Storage="_Admin", ThisKey="Username", OtherKey="Username", IsForeignKey=true)]
+		public Admin Admin
+		{
+			get
+			{
+				return this._Admin.Entity;
+			}
+			set
+			{
+				Admin previousValue = this._Admin.Entity;
+				if (((previousValue != value) 
+							|| (this._Admin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Admin.Entity = null;
+						previousValue.LogLogins.Remove(this);
+					}
+					this._Admin.Entity = value;
+					if ((value != null))
+					{
+						value.LogLogins.Add(this);
+						this._Username = value.Username;
+					}
+					else
+					{
+						this._Username = default(string);
+					}
+					this.SendPropertyChanged("Admin");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonAn")]
 	public partial class MonAn : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1345,6 +1680,8 @@ namespace NPL.Models
 		private System.Nullable<decimal> _PhiVanChuyen;
 		
 		private System.Nullable<int> _IDLoai;
+		
+		private System.Nullable<System.DateTime> _NgayCapNhat;
 		
 		private EntitySet<ThucDon> _ThucDons;
 		
@@ -1366,6 +1703,8 @@ namespace NPL.Models
     partial void OnPhiVanChuyenChanged();
     partial void OnIDLoaiChanging(System.Nullable<int> value);
     partial void OnIDLoaiChanged();
+    partial void OnNgayCapNhatChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayCapNhatChanged();
     #endregion
 		
 		public MonAn()
@@ -1415,7 +1754,7 @@ namespace NPL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GioiThieu", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GioiThieu", DbType="NVarChar(500)")]
 		public string GioiThieu
 		{
 			get
@@ -1495,6 +1834,26 @@ namespace NPL.Models
 					this._IDLoai = value;
 					this.SendPropertyChanged("IDLoai");
 					this.OnIDLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayCapNhat", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayCapNhat
+		{
+			get
+			{
+				return this._NgayCapNhat;
+			}
+			set
+			{
+				if ((this._NgayCapNhat != value))
+				{
+					this.OnNgayCapNhatChanging(value);
+					this.SendPropertyChanging();
+					this._NgayCapNhat = value;
+					this.SendPropertyChanged("NgayCapNhat");
+					this.OnNgayCapNhatChanged();
 				}
 			}
 		}
@@ -1735,6 +2094,8 @@ namespace NPL.Models
 		
 		private string _Email;
 		
+		private string _Sdt;
+		
 		private EntitySet<DatHang> _DatHangs;
 		
     #region Extensibility Method Definitions
@@ -1753,6 +2114,8 @@ namespace NPL.Models
     partial void OnGioiTinhChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
+    partial void OnSdtChanging(string value);
+    partial void OnSdtChanged();
     #endregion
 		
 		public TaiKhoan()
@@ -1801,7 +2164,7 @@ namespace NPL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(40)")]
 		public string Password
 		{
 			get
@@ -1877,6 +2240,26 @@ namespace NPL.Models
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sdt", DbType="VarChar(15)")]
+		public string Sdt
+		{
+			get
+			{
+				return this._Sdt;
+			}
+			set
+			{
+				if ((this._Sdt != value))
+				{
+					this.OnSdtChanging(value);
+					this.SendPropertyChanging();
+					this._Sdt = value;
+					this.SendPropertyChanged("Sdt");
+					this.OnSdtChanged();
 				}
 			}
 		}

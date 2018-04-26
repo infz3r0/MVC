@@ -30,6 +30,7 @@ namespace NPL.Controllers
             var nhaplaimatkhau = collection["NhapLaiMatKhau"];
             var hoten = collection["HoTen"];
             bool gioitinh =Convert.ToBoolean(Convert.ToInt16( collection["GioiTinh"]));
+            var dienthoai = collection["DienThoai"];
             var email = collection["Email"];     
             
             if (nhaplaimatkhau != matkhau)
@@ -42,6 +43,7 @@ namespace NPL.Controllers
                 tk.Password = matkhau;
                 tk.HoTen = hoten;
                 tk.GioiTinh = gioitinh;
+                tk.Sdt = dienthoai;
                 tk.Email = email;
                 data.TaiKhoans.InsertOnSubmit(tk);
                 data.SubmitChanges();
