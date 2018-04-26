@@ -11,11 +11,32 @@ namespace NPL.Controllers
     {
         private DBNPLDataContext data = new DBNPLDataContext();
 
+        private List<MonAn> LayMonAnMoi(int count)
+        {
+            return data.MonAns.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
+        }
         public ActionResult Index()
         {
-            return View();
+            var monanmoi = LayMonAnMoi(8);
+            return View(monanmoi);
         }
-
+        public ActionResult NhomMonAn (int id)
+        {
+            var nhommonan = from n in data.Nhoms select n;
+            return PartialView(nhommonan);
+        }
+        public ActionResult Details(int id)
+        {
+            var monan = from m in data.MonAns
+                        where m.IDMonAn == id
+                        select m;
+            return View(monan.Single());
+        }
+        public ActionResult Table_ThucDon(int idMonAn)
+        {
+            List<ThucDon> all = data.ThucDons.Where(i=>i.IDMonAn==idMonAn).ToList();
+            return PartialView(all);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
