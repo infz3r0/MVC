@@ -1,0 +1,14 @@
+﻿@model NPL.Models.TaiKhoan
+
+@if (Session["Username"] == null)
+{
+    
+<ul style="list-style-type:none">
+    <li><a href="@Url.Action("DangNhap", "NguoiDung")">Đăng nhập</a></li>
+    <li><a href="@Url.Action("DangKy", "NguoiDung")">Đăng ký</a></li>
+</ul>
+}
+else
+{
+    <a title="Đăng xuất" href="@Url.Action("DangNhap","NguoiDung")">Chào @Model.HoTen</a>
+}
