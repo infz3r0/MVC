@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NPL.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace NPL.Controllers
 {
@@ -15,10 +17,13 @@ namespace NPL.Controllers
         {
             return data.MonAns.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var monanmoi = LayMonAnMoi(8);
-            return View(monanmoi);
+            int pageSize = 6;
+            int pageNum = (page ?? 1);
+
+            var monanmoi = LayMonAnMoi(15);
+            return View(monanmoi.ToPagedList(pageNum, pageSize));
         }
         public ActionResult NhomMonAn (int id)
         {

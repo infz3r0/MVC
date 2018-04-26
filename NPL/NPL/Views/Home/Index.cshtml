@@ -1,4 +1,6 @@
-﻿
+﻿@using NPL.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<MonAn>
 
 @{
     ViewBag.Title = "Index";
@@ -38,7 +40,19 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>           
         </div>
-    </div>
+        <div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display:inline;
+                }
+            </style>
+        </div>       
+    </div>  
+    
 </section>
