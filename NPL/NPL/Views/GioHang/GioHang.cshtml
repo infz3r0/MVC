@@ -1,21 +1,14 @@
 ﻿@using NPL.Models
 @model List<GioHang>
+
 @{
     ViewBag.Title = "Giỏ hàng";
-    Layout = null;@* "~/Views/Shared/_Layout.cshtml";*@
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link href="~/Content/shared/bootstrap-responsive.min.css" rel="stylesheet" />
-<link href="~/Content/shared/bootstrappage.css" rel="stylesheet" />
-<link href="~/Content/shared/main.css" rel="stylesheet" />
-<link href="~/Content/shared/flexslider.css" rel="stylesheet" />
-<script src="~/Scripts/shared/jquery-1.7.2.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script src="~/Scripts/shared/superfish.js"></script>
-<script src="~/Scripts/shared/jquery.scrolltotop.js"></script> 
 
-<div class="row justify-content-center">
+
+<div class="row justify-content-center ">
     <div class="span12">
         <div class="table-responsive">
             <h4 class="title"><span class="text"><strong>THÔNG TIN</strong> GIỎ HÀNG</span></h4>
@@ -45,7 +38,7 @@
                 <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dPhiVanChuyen)</td>
 
                 <td style="vertical-align:middle">
-                    <input class="form-control form-control-static" type="number" min="1" name="txtSoluong" value="@item.iSoLuong" style="background-color:antiquewhite; width:70px" />
+                    <input class="form-control form-control-static" type="number" min="1" max="1000" name="txtSoluong" value="@item.iSoLuong" style="background-color:antiquewhite; width:70px" />
                 </td>
                 <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dDonGia)</td>
                 <td style="vertical-align:middle">@String.Format("{0:0,0}", @item.dThanhTien)</td>

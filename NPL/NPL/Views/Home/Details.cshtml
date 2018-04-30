@@ -3,25 +3,19 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>THÔNG TIN CHI TIẾT VỀ MÓN ĂN</h2>
-
 <div>
     <div style="width:35%; float:left; border-left:dotted 1px; border-color:azure">
         <img src="~/Images/MonAn/@Model.HinhAnh" style="width:480px; height:400px" />
-    </div>
-    
+    </div>    
     <div style="width:95%; float:inherit; padding:15px">
         <h4 style="font-weight:bold; color:red">Tên Món Ăn: @Model.TenMonAn</h4>
         <p style="text-align:justify"><span style="font-weight:bold">Giới Thiệu Món Ăn: </span>@Model.GioiThieu</p>
     </div>
     <div>
-
         @Html.Action("Table_ThucDon", "Home", new { idMonAn = Model.IDMonAn })
-
     </div>
 </div>
-
 <div>
     @Html.ActionLink("TRỞ LẠI TRANG CHỦ", "Index", null, new { @class = "btn btn-success" })
 </div>

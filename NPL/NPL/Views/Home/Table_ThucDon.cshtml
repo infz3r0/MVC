@@ -28,7 +28,7 @@
                 @item.DonGia VNĐ
             </td>
             <td style="text-align:center;vertical-align:middle">
-                @Html.ActionLink("Đặt Hàng", "Order", new { id = item.IDThucDon }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Đặt Hàng", "ThemGioHang","GioHang", new { id = item.IDThucDon }, new { @class = "btn btn-info" })
             </td>
         </tr>                
     }

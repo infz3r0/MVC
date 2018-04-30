@@ -13,7 +13,7 @@ namespace NPL.Controllers
 
         private List<MonAn> LayMonAnMoi(int count)
         {
-            return data.MonAns.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
+            return data.MonAns.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
         }
         public ActionResult Index()
         {

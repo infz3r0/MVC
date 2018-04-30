@@ -143,7 +143,7 @@ namespace NPL.Controllers
 
         public ActionResult DatHang(FormCollection collection)
         {
-            DatHang ddh = new DatHang();
+            DatHang ddh = new DatHang();            
             TaiKhoan tk = (TaiKhoan)Session["Username"];
             List<GioHang> gh = LayGioHang();
             ddh.IDUser = tk.IDUser;
@@ -159,25 +159,19 @@ namespace NPL.Controllers
             }
             ddh.ThanhTien = decimal.Parse( iTongTien.ToString());
             data.DatHangs.InsertOnSubmit(ddh);
-                data.SubmitChanges();
-
-            
- 
+                data.SubmitChanges();            
             foreach (var item in gh)
                 {
                     ChiTietDatHang ctdn = new ChiTietDatHang();
                     ctdn.ID = ddh.ID;
+                    
                     ctdn.IDThucDon = item.iIDThucDon;
                     ctdn.SoLuong = item.iSoLuong;  
                     data.ChiTietDatHangs.InsertOnSubmit(ctdn);
-
-                }
-            
+                }            
                 data.SubmitChanges();
                 Session["GioHang"] = null;
-                return RedirectToAction("Xacnhandonhang", "GioHang");
-            
-
+                return RedirectToAction("Xacnhandonhang", "GioHang");           
         }
 
         public ActionResult Xacnhandonhang()
