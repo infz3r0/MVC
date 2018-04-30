@@ -168,3 +168,7 @@ C:\Users\pc\Source\Repos\MVC\NPL\NPL\obj\Debug\NPL.csprojResolveAssemblyReferenc
 C:\Users\pc\Source\Repos\MVC\NPL\NPL\obj\Debug\NPL.csproj.CoreCompileInputs.cache
 C:\Users\pc\Source\Repos\MVC\NPL\NPL\obj\Debug\NPL.dll
 C:\Users\pc\Source\Repos\MVC\NPL\NPL\obj\Debug\NPL.pdb
+C:\Users\pc\Source\Repos\MVC\NPL\NPL\bin\PagedList.dll
+C:\Users\pc\Source\Repos\MVC\NPL\NPL\bin\PagedList.Mvc.dll
+C:\Users\pc\Source\Repos\MVC\NPL\NPL\bin\PagedList.xml
+C:\Users\pc\Source\Repos\MVC\NPL\NPL\bin\PagedList.Mvc.xml

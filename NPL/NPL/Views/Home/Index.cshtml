@@ -1,12 +1,14 @@
-﻿
+﻿@using NPL.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<MonAn>
 
 @{
-    ViewBag.Title = "Trang chủ NPL";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="main-content">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="span12">
             <br />
             <h4 class="title">
@@ -22,33 +24,35 @@
                                 <li class="span3">
                                     <div class="product-box">
                                         <a href="@Url.Action("Details", "Home", new { id = monan.IDMonAn })">
-                                            <img alt="@monan.TenMonAn" src="~/Images/MonAn/@monan.HinhAnh" style="width:270px; height:200px" />
-                                            <div>
+                                            <img alt="@monan.TenMonAn" src="~/Images/MonAn/@monan.HinhAnh" style="width:270px; height:200px" />                                                                                        
+                                            <div>                                             
                                                 <br />
                                                 <h4 style="text-align:center">
                                                     @monan.TenMonAn
-                                                </h4>
+                                                </h4>                                                
                                                 <p></p>
-                                            </div>
+                                            </div>                                  
                                         </a>
                                     </div>
                                     <br />
-                                </li>
-                            }
+                                </li>                                
+                            }                            
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>           
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="span12">
-            <h4 class="title">
-                <span class="pull-left"><span class="text"><span class="line">TIN <strong>MỚI</strong></span></span></span>
-            </h4>
-            <div>
-                <iframe width="100%" height="100%" frameborder="0" class="rssdog" src="https://www.rssdog.com/index.php?url=http%3A%2F%2Fwww.doivi.net%2Frss%2Ftin%2Fmon-an-tot-cho-suc-khoe%2F&mode=html&showonly=&maxitems=1&showdescs=3&desctrim=0&descmax=3&tabwidth=100%10&linktarget=_blank&textsize=inherit&bordercol=%23d4d0c8&headbgcol=%23999999&headtxtcol=%23ffffff&titlebgcol=%23f1eded&titletxtcol=%23000000&itembgcol=%23ffffff&itemtxtcol=%23000000&ctl=0"></iframe>
+        <div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
             </div>
-        </div>
-    </div>
+            <style>
+                .MenuTrang li {
+                    display:inline;
+                }
+            </style>
+        </div>       
+    </div>  
+    
 </section>
