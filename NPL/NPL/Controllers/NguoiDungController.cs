@@ -35,7 +35,7 @@ namespace NPL.Controllers
             
             if (nhaplaimatkhau != matkhau)
             {
-                ViewData["Loi1"] = "Mật khẩu không trùng khớp";
+                ViewData["Loi1"] = "Mật khẩu không trùng khớp, vui lòng kiểm tra lại!";
             }            
             else
             {
@@ -74,7 +74,7 @@ namespace NPL.Controllers
                 return RedirectToAction("Index", "Home");
             }
             else
-                ViewBag.Thongbao = "Sai thông tin đăng nhập!";
+                ViewBag.Thongbao = "Sai thông tin đăng nhập, vui lòng kiểm tra lại!";
             return View();
         }
         public ActionResult HienTenDN(int id)
@@ -93,5 +93,49 @@ namespace NPL.Controllers
             TaiKhoan tk = (TaiKhoan)Session["Username"];
             return PartialView(tk);
         }
+
+        public ActionResult DangXuat()
+        {
+            //TaiKhoan tk = (TaiKhoan)Session["Username"];
+            Session["Username"] = null;
+            return RedirectToAction("DangNhap","NguoiDung");
+        }
+
+        [HttpGet]
+        public ActionResult DoiMatKhau()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]    
+        public ActionResult DoiMatKhau(FormCollection collection)
+        {
+            
+               
+            var email = collection["Email"];
+            var user = data.TaiKhoans.SingleOrDefault(m => m.Email == email);
+            var matkhaumoi = collection["MatKhauMoi"];
+            var nhaplaimatkhau = collection["NhapLaiMatKhauMoi"];
+            if(user == null)
+            {
+                ViewData["Loi1"] = "Email không tồn tại, vui lòng kiểm tra lại!";
+            }
+            else if(matkhaumoi != nhaplaimatkhau)
+            {
+                ViewData["Loi2"] = "Mật khẩu không trùng khớp, vui lòng kiểm tra lại!";
+            }
+            else
+            {
+               
+                
+                user.Password = matkhaumoi;
+                UpdateModel(user);
+                data.SubmitChanges();
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+
+            return View(ViewData);
+        }       
     }
 }

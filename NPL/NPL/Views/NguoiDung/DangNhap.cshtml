@@ -1,21 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "Đăng nhập";
-    Layout = null;@*"~/Views/Shared/_Layout.cshtml";*@
+    Layout ="~/Views/Shared/_Layout.cshtml";
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link href="~/Content/shared/bootstrap-responsive.min.css" rel="stylesheet" />
-<link href="~/Content/shared/bootstrappage.css" rel="stylesheet" />
-<link href="~/Content/shared/main.css" rel="stylesheet" />
-<link href="~/Content/shared/flexslider.css" rel="stylesheet" />
-<script src="~/Scripts/shared/jquery-1.7.2.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script src="~/Scripts/shared/superfish.js"></script>
-<script src="~/Scripts/shared/jquery.scrolltotop.js"></script>
-
-<section class="#" >
-    <div class=" row justify-content-center">
+<section>
+    <div class=" row justify-content-center ">
         <div class="span4">
             <h4 class="title"><span class="text"><strong>ĐĂNG NHẬP</strong> WEBSITE</span></h4>
             <form action="#" method="post" class="form-stacked">
@@ -23,33 +13,32 @@
                     <div class="control-group" style="margin-bottom:17px">
                         <label class="control-label">Tên đăng nhập:</label>
                         <div class="controls">
-                            <input type="text" name="TenDangNhap" class="form-control form-control-static" required autofocus>
+                            <input type="text" name="TenDangNhap" class="form-control form-control-static" style="max-width:100%" required autofocus>
                         </div>
                     </div>
                     <div class="control-group" style="margin-bottom:17px">
                         <label class="control-label">Mật khẩu:</label>
                         <div class="controls">
-                            <input type="password" name="MatKhau" class="form-control form-control-static" required>
+                            <input type="password" name="MatKhau" class="form-control form-control-static" style="max-width:100%" required>
                         </div>
                     </div>
                     <h6 style="color:red; font-size:13px">
                         <td>
-                          @ViewBag.Thongbao
+                            @ViewBag.Thongbao
                         </td>
                     </h6>
-                    <hr>
-                    <div class="actions"><input tabindex="2" class="btn btn-outline-info btn-block btn-lg" type="submit" value="Đăng nhập"></div>
+                    <hr>                 
+                    <div class="actions"><input tabindex="2" class="btn btn-outline-info btn-block btn-lg" type="submit" value="Đăng nhập" style="max-width:100%"></div>
                 </fieldset>
             </form>
-            <div style="margin-bottom:17px">
-                <a href="@Url.Action("DangKy","NguoiDung") " class="btn-link" >Bạn chưa có tài khoản? </a>
+            <div style="margin-bottom:17px; margin-top:17px">
+                <a href="@Url.Action("DoiMatKhau","NguoiDung") " class="btn-link">Quên mật khẩu? </a>
             </div>
             <div style="margin-bottom:17px">
-                <a href="@Url.Action("Index","NguoiDung") " class="btn-link" >Quên mật khẩu ?</a>
+                <a href="@Url.Action("DangKy","NguoiDung") " class="btn-link">Bạn chưa có tài khoản? </a>
             </div>
         </div>
     </div>
-
 </section>
 
     
