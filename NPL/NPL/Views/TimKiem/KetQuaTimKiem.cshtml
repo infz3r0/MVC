@@ -1,20 +1,23 @@
-﻿@using NPL.Models
+﻿
 @using PagedList.Mvc;
-@model PagedList.PagedList<MonAn>
+@using PagedList;
+
+@model IPagedList<NPL.Models.MonAn>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "KetQuaTimKiem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <section class="main-content">
     <div class="row">
         <div class="span12">
             <br />
             <h4 class="title">
-                <span class="pull-left"><span class="text"><span class="line">CÁC MÓN <strong>MỚI</strong></span></span></span>
+                <span class="pull-left"><span class="text"><span class="line">Kết Quả <strong>Tìm Kiếm</strong></span></span></span>
             </h4>
-
+            <div>@ViewBag.ThongBao</div>
             <div id="myCarousel" class="myCarousel carousel slide">
                 <div class="carousel-inner">
                     <div class="active item">
@@ -24,38 +27,38 @@
                                 <li class="span3">
                                     <div class="product-box">
                                         <a href="@Url.Action("Details", "Home", new { id = monan.IDMonAn })">
-                                            <img alt="@monan.TenMonAn" src="~/Images/MonAn/@monan.HinhAnh" style="width:270px; height:200px" />                                                                                        
-                                            <div>                                             
+                                            <img alt="@monan.TenMonAn" src="~/Images/MonAn/@monan.HinhAnh" style="width:270px; height:200px" />
+                                            <div>
                                                 <br />
                                                 <h4 style="text-align:center">
                                                     @monan.TenMonAn
-                                                </h4> 
-                                                
+                                                </h4>
+
                                                 <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                                               
+
                                                 <p></p>
-                                            </div>                                  
+                                            </div>
                                         </a>
                                     </div>
                                     <br />
-                                </li>                                
-                            }                            
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
         <div>
             Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
             <div class="MenuTrang">
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                @Html.PagedListPager(Model, page => Url.Action("KetQuaTimKiem", new { page = page, @tukhoa = ViewBag.TK }))
             </div>
             <style>
                 .MenuTrang li {
-                    display:inline;
+                    display: inline;
                 }
             </style>
-        </div>       
-    </div>  
-    
+        </div>
+    </div>
+
 </section>

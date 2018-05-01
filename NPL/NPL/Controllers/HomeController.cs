@@ -17,14 +17,13 @@ namespace NPL.Controllers
         {
             return data.MonAns.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
-        public ActionResult Index(int ? page)
-        {
+        public ActionResult Index(int ? page, FormCollection f)
+        {            
             int pageSize = 6;
-            int pageNum = (page ?? 1);
-
+            int pageNum = (page ?? 1);                                   
             var monanmoi = LayMonAnMoi(15);
             return View(monanmoi.ToPagedList(pageNum, pageSize));
-        }
+        }               
         public ActionResult NhomMonAn (int id)
         {
             var nhommonan = from n in data.Nhoms select n;

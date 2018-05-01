@@ -47,6 +47,19 @@
     </header>
     <div class="clearfix"></div>
     <nav class="navbar navbar-expand-md bg-custom navbar-dark">
+    
+        <div id="txtTimkiem">
+            @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+            {
+                @Html.TextBox("txtTimkiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập từ khóa cần tìm"})
+                <button type="submit">
+
+                    <img src="~/Images/menu/8656f237f48b241.jpg" style="height:25px; width:25px" />
+                </button>                
+            }            
+        </div>
+        
+
         <!-- Brand -->
         @Html.ActionLink("Menu", "Index", "NPL", null, new { @class = "navbar-brand navbar-brand-custom" })
 
@@ -56,8 +69,8 @@
         </button>
 
         <!-- Navbar links -->
-        <div class="collapse navbar-collapse navbar-collapse-custom" id="collapsibleNavbar">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse navbar-collapse-custom" id="collapsibleNavbar">                                    
+            <ul class="navbar-nav mr-auto">               
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
@@ -126,5 +139,19 @@
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
             @RenderSection("scripts", required: false)
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id)
+        {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+   
+
 </body>
 </html>
